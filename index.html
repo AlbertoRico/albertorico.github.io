@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HBTest</title>
+</head>
+<body>
+<h1>HBTest</h1>
+<p id="alert">Not detected</p>
+</body>
+<script>
+function showDetected() {
+  document.getElementById("alert").innerHTML = "Detected!";
+}
+
+var body = document.getElementsByTagName("body")[0];
+var image = document.createElement("img");
+image.src = "https://upload.wikimedia.org/wikipedia/commons/2/2a/Keyboard-anykey.jpg";
+image.setAttribute("id", "fakeimage");
+body.appendChild(image);
+image.onerror = function(){
+    if(image.width == 0 && image.height == 0) {
+        showDetected();
+    }
+}
+</script>
+</html>
